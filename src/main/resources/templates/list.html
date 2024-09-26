@@ -18,13 +18,22 @@
         </thead>
         <tbody>
             <tr th:each=" user : ${users}">
-                <td th:text="${user.name}"></td>
+                <td th:text="${user.name}"></td> <!--El signo pesos es para interpolar objetos-->
                 <td th:text="${user.lastname}"></td>
                 <td th:if="${user.email == null}" th:text="${'no tiene email'}"></td>
                 <td th:if="${user.email != null}" th:text="${user.email}"></td>
             </tr>
         </tbody>
     </table>
-    
+    <a th:href="@{/statusModel}">ver hello</a> <!--El arroba pesos es para interpolar rutas-->
+    <br>
+    <a th:href="@{'/Params/foo?message='+ ${title}}">ver mesaje</a> <!--El como interpolar parametros en la ruta-->
+    <br>
+    <a th:href="@{/Params/foo(message='otra forma')}">forma dos</a>
+    <br>
+    <a th:href="@{/Params/bar(param='otra forma',code=321)}">forma tres</a>
+
+    <br>
+    <a th:href="@{/path/baz/un mensaje}">path</a>
 </body>
 </html>
